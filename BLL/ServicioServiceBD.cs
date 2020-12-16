@@ -50,5 +50,38 @@ namespace BLL
                 return $"Error: {e.Message}";
             }
         }
+
+        public RespuestaConsulta Consultar()
+        {
+            RespuestaConsulta respuesta;
+            try
+            {
+                connection.Open();
+                respuesta = new RespuestaConsulta(servicioRepositoryBD.ConsultarServicios());
+                connection.Close();
+                return respuesta;
+            }
+            catch (Exception e)
+            { 
+                respuesta = new RespuestaConsulta($"Error: {e.Message}");
+                return respuesta;
+            }
+            finally { connection.Close(); }
+        }
+    }
+
+    public class RespuestaServivios
+    {
+        public List<Servicio> Servicios { get; set; }
+        public string Mensaje { get; set; }
+
+        public RespuestaServivios(List<Servicio> servicios)
+        {
+            Servicios = servicios;
+        }
+        public RespuestaServivios(string mensaje)
+        {
+            Mensaje = mensaje;
+        }
     }
 }

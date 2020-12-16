@@ -58,11 +58,10 @@ namespace PresentacionTercerParcial
                     var file = fileDialog.OpenFile();
                     ServicioService = new ServicioService(file);
                     List<Servicio> servicios = ServicioService.Consultar().Servicios;      
-                    dataGridView1.DataSource = ServicioService.Validar(comboBox1.Text).Servicios;
                     var lista = ServicioService.Validar(comboBox1.Text).Servicios;
                      MessageBox.Show( ServicioServiceBD.Guardar(lista));
                     var listanoAptos = ServicioService.Noaptos(comboBox1.Text, Valor(servicios)).Servicios;
-                    ArchivoLogService.Guardar(listanoAptos, Valor(servicios));
+                    
                 }
             }
         }
@@ -94,6 +93,12 @@ namespace PresentacionTercerParcial
         private void Form1_Load(object sender, EventArgs e)
         {
             LlenarCombo();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = ServicioServiceBD.Consultar().Servicios;
+            MessageBox.Show(ServicioServiceBD.Consultar().Mensaje);
         }
     }
 }
