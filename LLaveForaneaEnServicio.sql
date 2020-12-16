@@ -1,0 +1,1 @@
+﻿alter table Servicio add constraint fkLaboratorio foreign key(idLaboratorio) references laboratorios(IdLaboratorio);

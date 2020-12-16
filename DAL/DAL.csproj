@@ -41,8 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="ArchivoLogRepository.cs" />
+    <Compile Include="ConnectionManager.cs" />
+    <Compile Include="IpsRepositoryBD.cs" />
+    <Compile Include="ServicioRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServicioRepositoryBD.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Entity\Entity.csproj">

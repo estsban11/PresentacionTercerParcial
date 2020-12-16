@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BLL
+namespace Entity
 {
-    public class Class1
+    public class Ips
     {
+        public string Id { get; set; }
+        public string Nombre { get; set; }
     }
 }
